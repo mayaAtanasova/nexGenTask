@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import RegistrationForm from './Components/RegistrationForm/RegistrationForm';
 import './App.css';
+import bkg from './assets/coworking-bkg.png'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+
+      <div className="aside">
+        <img src={bkg} alt="" />
+        <h1>Register to</h1>
+        <h1>FIND</h1>
+        <h1>a <span>COWorking</span></h1>
+        <h1>Match</h1>
+      </div>
+
+      <div className="form-wrapper">
+        <RegistrationForm />
+      </div>
+
     </div>
   );
 }

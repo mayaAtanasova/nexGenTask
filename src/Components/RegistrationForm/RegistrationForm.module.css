@@ -1,0 +1,175 @@
+form {
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  background-color: #ebf2f8;
+}
+
+fieldset {
+  margin-top: 1rem;
+  border: none;
+}
+
+legend {
+  font-size: 1.5rem;
+  font-weight: 600;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+legend::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  content: "";
+  background-color: #335dab;
+}
+
+form div:first-child {
+  margin-bottom: 0.5rem;
+}
+
+input,
+textarea,
+select {
+  border: none;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  margin: 0.3rem;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+  font-family: Nunito, sans-serif;
+}
+
+label {
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding-right: 0.5rem;
+}
+
+textarea {
+  resize: none;
+}
+
+.fullName {
+  display: flex;
+  align-items: center;
+}
+
+.fullName input {
+  width: 100%;
+}
+
+.dateGenderColor {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.dateGenderColor div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+}
+
+.website {
+  display: flex;
+  align-items: center;
+}
+
+.website input {
+  flex: 1;
+}
+
+.fieldOfWork {
+  display: flex;
+  gap: 1rem;
+}
+
+.fieldOfWork div {
+  display: flex;
+  align-items: center;
+}
+
+.yearsActive input {
+  max-width: 50px;
+}
+
+.loginData {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.credentials div {
+  display: flex;
+  align-items: center;
+}
+
+.credentials div input {
+  flex: 1;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.imageSelect {
+  width: 20%;
+  padding: 1rem;
+  aspect-ratio: 1/1;
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.imageSelect p {
+  margin: 0;
+}
+
+.imageSelect h5 {
+  margin: 0;
+  font-size: 4rem;
+}
+
+.actionButtons {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.actionButtons input {
+  flex: 1;
+  font-weight: 600;
+  font-size: 1.5rem;
+  transition: all 0.2s ease-in-out;
+}
+.actionButtons input:hover {
+  opacity: 0.8;
+  filter: hue-rotate(10deg);
+  cursor: pointer;
+}
+
+.actionButtons input[type="submit"] {
+  background-color: #d5e29c;
+}
+
+.actionButtons input[type="reset"] {
+  background-color: #ef9d31;
+}
