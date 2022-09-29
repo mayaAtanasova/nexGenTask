@@ -1,0 +1,17 @@
+export default interface IFormError {
+    firstName: {err: boolean, message: ''},
+    lastName: {err: boolean, message: ''},
+    birth: {err: boolean, message: ''},
+    gender: {err: boolean, message: ''},
+    favColor: {err: boolean, message: ''},
+    bio: {err: boolean, message: ''},
+    website: {err: boolean, message: ''},
+    field: {err: boolean, message: ''},
+    active: {err: boolean, message: ''},
+    phone: {err: boolean, message: ''},
+    email: {err: boolean, message: ''},
+    password: {err: boolean, message: ''},
+    repass: {err: boolean, message: ''},
+    image: {err: boolean, message: ''},
+    toc: {err: boolean, message: ''},
+}

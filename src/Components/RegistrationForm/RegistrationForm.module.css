@@ -173,3 +173,16 @@ input[type="file"] {
 .actionButtons input[type="reset"] {
   background-color: #ef9d31;
 }
+
+.nameErrors {
+  display: flex;
+  gap: 1rem;
+}
+.error {
+  border: 1px solid salmon;
+  border-radius: 10px;
+}
+
+.errorMessage {
+  color: salmon;
+}
