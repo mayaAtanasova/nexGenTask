@@ -9,7 +9,8 @@ import {
     passwordValidator,
     confrimPasswordValidator,
     tocValidator
-} from '../validators/validators'
+} from '../validators/validators';
+import { cleanError } from '../helpers/emptyError'
 
 const validatorsDict: {
     [key: string]: Function,
@@ -35,23 +36,7 @@ const useFormValidate = (form: IForm) => {
 
     const fields = Object.entries(form);
 
-    const initialState: IFormError = {
-        firstName: { err: false, message: '' },
-        lastName: { err: false, message: '' },
-        birth: { err: false, message: '' },
-        gender: { err: false, message: '' },
-        favColor: { err: false, message: '' },
-        bio: { err: false, message: '' },
-        website: { err: false, message: '' },
-        field: { err: false, message: '' },
-        active: { err: false, message: '' },
-        phone: { err: false, message: '' },
-        email: { err: false, message: '' },
-        password: { err: false, message: '' },
-        repass: { err: false, message: '' },
-        image: { err: false, message: '' },
-        toc: { err: false, message: '' },
-    }
+    const initialState: IFormError = cleanError;
 
     const [error, setError] = useState(initialState);
 
@@ -70,7 +55,6 @@ const useFormValidate = (form: IForm) => {
         });
 
         const formErrors = Object.values(nextErrors);
-        console.log(formErrors);
         const isFormValid = formErrors.every(field => !field.err);
         setError(nextErrors);
 

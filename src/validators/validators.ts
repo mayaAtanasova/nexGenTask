@@ -1,14 +1,14 @@
 
 export const textValidator = (text: string): string => {
     if (!text) {
-        return 'field is required';
+        return 'is required';
     }
     return '';
 };
 
 export const websiteValidator = (text: string): string => {
-    if (text.slice(0, 4) !== 'http') {
-        return "Enter an URL beginning with http:// or https://"
+    if (!/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(text)) {
+        return "Enter an URL in the format http(s)://www.example.com"
     }
     return '';
 }

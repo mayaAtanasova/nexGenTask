@@ -8,7 +8,7 @@ export default interface IForm {
     bio: string,
     website: string,
     field: string,
-    active: number,
+    active: number | undefined,
     phone: string,
     email: string,
     password: string,

@@ -186,3 +186,7 @@ input[type="file"] {
 .errorMessage {
   color: salmon;
 }
+
+.errorMessage p {
+  margin: 0;
+}

@@ -3,12 +3,10 @@ import './App.css';
 import bkg from './assets/coworking-bkg.png'
 import { useEffect } from 'react';
 
-const binURL = process.env.REACT_APP_BIN_URL;
-
 function App() {
 
 useEffect (() => {
-  console.log(binURL);
+
 }, [])
 
   return (
