@@ -1,16 +1,28 @@
 import RegistrationForm from './Components/RegistrationForm/RegistrationForm';
 import './App.css';
 import bkg from './assets/coworking-bkg.png'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
 
-useEffect (() => {
+  const [postMessage, setPostMessage] = useState('');
+  const [showMessage, setShowMessage] = useState(false);
 
-}, [])
+  const displayMessage = (message:string) => {
+    setPostMessage(message);
+    setShowMessage(true);
+    setTimeout(() => {
+      setPostMessage('');
+      setShowMessage(false);
+    }, 3000);
+  }
 
   return (
     <div className="wrapper">
+
+      {showMessage && <div className="message">
+        {postMessage}
+      </div>}
 
       <div className="aside">
         <img src={bkg} alt="" />
@@ -21,7 +33,7 @@ useEffect (() => {
       </div>
 
       <div className="form-wrapper">
-        <RegistrationForm />
+        <RegistrationForm onMsgReceived={displayMessage}/>
       </div>
 
     </div>

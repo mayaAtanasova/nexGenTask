@@ -9,6 +9,16 @@
   justify-content: center;
 }
 
+.message {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  background-color: #3560ae;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  color: white;
+}
+
 .aside {
   position: relative;
   width: 50%;

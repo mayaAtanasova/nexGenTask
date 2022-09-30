@@ -1,43 +1,18 @@
 import { useState } from 'react';
-import { cleanError } from '../../helpers/emptyError';
 import useFormValidate from '../../hooks/useFormValidate';
 import IForm from '../../Interfaces/IForm';
 import { postForm } from '../../services/formService';
+import { emptyForm } from '../../helpers/emptyForm';
 import styles from './RegistrationForm.module.css';
 
-const RefistrationForm = () => {
+type componentProps = {
+  onMsgReceived: (message:string) => void;
+}
 
-  const emptyForm: IForm = {
-    firstName: '',
-    lastName: '',
-    birth: '',
-    gender: '',
-    favColor: '',
-    bio: '',
-    website: '',
-    field: '',
-    active: undefined,
-    phone: '',
-    email: '',
-    password: '',
-    repass: '',
-    image: '',
-    toc: false,
-  }
+const RefistrationForm = ({onMsgReceived}:componentProps) => {
 
   const [form, setForm] = useState<IForm>(emptyForm);
-  const [formValid, setFormValid] = useState(true);
   const { error, validateForm } = useFormValidate(form);
-
-  const submitForm = (e: any) => {
-    e.preventDefault();
-    const { isFormValid } = validateForm(form);
-
-    if (isFormValid) {
-      console.log(form);
-      postForm(form);
-    }
-  }
 
   const updateForm = (event: any) => {
     setForm((formState) => {
@@ -53,6 +28,20 @@ const RefistrationForm = () => {
         [event.target.name]: event.target.value,
       }
     });
+  }
+
+  const submitForm = async (e: any) => {
+    e.preventDefault();
+    const { isFormValid } = validateForm(form);
+
+    if (isFormValid) {
+      const response = await postForm(form);
+      if (response!.ok == true) {
+        onMsgReceived('Form posted successfully');
+        resetForm();
+      }
+      onMsgReceived('Error posting form');
+    }
   }
 
   const resetForm = () => {
@@ -259,6 +248,10 @@ const RefistrationForm = () => {
       <div className={error.toc.err ? styles.error : ''}>
         <input type="checkbox" name="toc" checked={form.toc} onChange={updateForm} /> I have read and agree with the terms and conditions
       </div>
+      {error.toc.err &&
+            <div className={styles.errorMessage}>
+              <p>{error.toc.message}</p>
+            </div>}
 
       <div className={styles.actionButtons}>
         <input type="submit" name="submitBtn" role="button" value="SUBMIT FORM" />

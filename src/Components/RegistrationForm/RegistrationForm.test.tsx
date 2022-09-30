@@ -4,12 +4,12 @@ import RegistrationForm from './RegistrationForm';
 import userEvent from '@testing-library/user-event';
 
 
-let firstNameInput;
-let lastNameInput;
-let phoneNrInput;
+const displayMessage = (message:string) => {
+console.log(message);
+}
 
 const setup = () => {
-  render(<RegistrationForm />);
+  render(<RegistrationForm onMsgReceived={displayMessage}/>);
 
   const firstNameInput = screen.getByPlaceholderText('First Name') as HTMLInputElement;
   const lastNameInput = screen.getByPlaceholderText('Last Name');
